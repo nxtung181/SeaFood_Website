@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}">
+</div>
+<!-- End Main Top -->
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+    <!-- End Navigation -->
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments::all-title-box}">
+</div>
+<!-- End All Title Box -->
+<div class="mainDiv">
+    <div class="cardStyle">
+        <div th:if = "${information}">
+            <p class = "alert alert-success" th:text = "${information}"></p>
+        </div>
+        <form th:action="@{/update-info}" th:object="${customerDto}" method="post">
+
+            <img src="" id="signupLogo"/>
+
+            <h2 class="formTitle">
+                <i>Personal Information</i>
+            </h2>
+
+            <div th:if="${success}" class="text-center alert alert-success">
+                <p th:text="${success}"></p>
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="firstName"> First name * </label>
+                <input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+                <p th:errors="*{firstName}" class="text-danger" th:if="${#fields.hasErrors('firstName')}"></p>
+
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="lastName">Last name *</label>
+                <input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+                <p th:errors="*{lastName}" class="text-danger" th:if="${#fields.hasErrors('lastName')}"></p>
+
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="username">User name *</label>
+                <input type="text" id="username" name="username" th:field="*{username}">
+                <p th:errors="*{username}" class="text-danger" th:if="${#fields.hasErrors('username')}"></p>
+
+            </div>
+
+<!--            <div class="inputDiv">-->
+<!--                <label class="inputLabel" for="password">Password *</label>-->
+<!--                <input type="password" id="password" name="password" th:field="*{password}">-->
+<!--                <p th:errors="*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}"></p>-->
+
+<!--            </div>-->
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="phoneNumber">Phone number *</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}">
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="address">Address *</label>
+                <input type="text" id="address" name="address" th:field="*{address}">
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="city">City *</label>
+                <input type="text" id="city" name="city" th:field="*{city}">
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="country">Country *</label>
+                <input type="text" id="country" name="country" th:field="*{country}">
+            </div>
+
+            <div class="buttonWrapper">
+                <button type="submit" id="submitButton" class="submitButton pure-button pure-button-primary">
+                    <span>Save</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</section>
+
+<!-- Start copyright  -->
+<footer th:replace="~{fragments::footer}"></footer>
+
+
+<!-- End copyright  -->
+
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+<!-- ALL JS FILES -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- ALL PLUGINS -->
+<script src="js/jquery.superslides.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/inewsticker.js"></script>
+<script src="js/bootsnav.js."></script>
+<script src="js/images-loded.min.js"></script>
+<script src="js/isotope.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/baguetteBox.min.js"></script>
+<script src="js/form-validator.min.js"></script>
+<script src="js/contact-form-script.js"></script>
+<script src="js/custom.js"></script>
+</body>
+
+</html>
